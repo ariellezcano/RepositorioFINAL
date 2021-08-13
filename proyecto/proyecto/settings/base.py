@@ -24,7 +24,14 @@ SECRET_KEY = '@d@7e&pu%qfvsf(jqs*oap0dh&lhn^w4tzk13z8)r_)-u0nhp='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+
+# creado recientemente
+AUTH_USER_MODEL = 'usuarios.Usuario'
+
+#LOGIN_REDIRECT_URL = reverse_lazy('Home')
+#LOGOUT_REDIRECT_URL = reverse_lazy('login')
+#LOGIN_URL = reverse_lazy('login')
+
 
 
 # Application definition
@@ -37,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'apps.usuarios',
 ]
 
 MIDDLEWARE = [
