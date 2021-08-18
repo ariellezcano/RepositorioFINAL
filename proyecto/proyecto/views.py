@@ -1,7 +1,5 @@
 from django.shortcuts import render
 
 def Home(request):
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
-def Primera(request):
-    return render(request, 'primera.html')
