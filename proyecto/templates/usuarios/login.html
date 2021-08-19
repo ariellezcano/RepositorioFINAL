@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<!------ <form method="POST"> {% csrf_token %}
+        {{form.errors}}
+        <input type="text" name="username" placeholder="Usuario">
+        <input type="password" name="password" placeholder="Contraseña">
+
+        <input type="submit" value="Enviar>">
+    </form>---------->
+
+    <!------ Include the above in your HEAD tag ---------->
+    
+    <div class="container h-80">
+    <div class="row align-items-center h-100">
+        <div class="col-3 mx-auto" style="box-shadow: 2px 2px 6px white; padding: 2rem;">
+            <div class="text-center">
+                <img id="profile-img" class="rounded-circle profile-img-card" src="https://i.imgur.com/6b6psnA.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                
+                <form method="POST"  class="form-signin">
+                    {% csrf_token %}
+                    {{form.errors}}
+                    <input type="text" name="username" id="inputPassword" class="form-control form-group" placeholder="Usuario" required autofocus>
+                    <br>
+                    <input type="password" name="password" id="inputPassword" class="form-control form-group" placeholder="Contraseña" required autofocus>
+                    <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Ingresar</button>
+                </form>
+           
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock contenido %}

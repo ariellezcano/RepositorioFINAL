@@ -4,5 +4,6 @@ from .import views
 app_name = 'productos'
 
 urlpatterns = [
-  path('listar/', views.ListarProductos, name='listar')
+  path('listar/', views.ListarProductos, name='listar'),
+  path('detalle/', views.detalleProductos, name='detalle')
 ]

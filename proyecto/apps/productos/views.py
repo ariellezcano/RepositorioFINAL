@@ -1,5 +1,27 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
+from .models import Producto
 
 # Create your views here.
+
+@login_required
 def ListarProductos(request):
-    return render(request, 'productos/listar.html')
+    # declara un diccionario que por convencion se llama context
+    context = {}
+    #Buscar todos los productos
+    #Producto.objects.all() se transforma en:
+    # SELECT * FROM Producto
+    todos = Producto.objects.all() # ORM de django
+    # guarda en el diccionario context los productos y se los pasa al template
+    context['productos'] = todos
+    # Pasarlos al template con el context al final del return para que me retorne la lista completa en el 
+    # template
+    return render(request, 'productos/listar.html', context)
+
+def DetalleProductos(request):
+    context = {}
+    todos = Producto.objects.all() # ORM de django
+    context['productos'] = todos
+    return render(request, 'productos/detalleProducto.html', context)
+

@@ -9,3 +9,6 @@ class Producto(TimeModels):
     stock = models.IntegerField(default=0)
     subrubro = models.ForeignKey(SubRubro, on_delete=models.SET_NULL, null= True)
 
+    def __str__(self):
+        return self.nombre
+    
