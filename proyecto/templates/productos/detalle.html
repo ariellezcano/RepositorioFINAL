@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block contenido %}
+<h1>Detalle de Producto seleccionado {{producto.nombre}}</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Subrubro</th>
+            <th>rubro</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+            <td>{{producto.precio}}</td>
+            <td>{{producto.stock}}</td>
+            <td>{{producto.subrubro}}</td>
+            <td>{{producto.subrubro.rubro}}</td>
+        </tr>
+        
+    </tbody>
+</table>
+<div class="col">
+    <div class="row">
+        <a class="btn btn-primary" href="{% url 'productos:listar' %}">Volver a Productos</a>
+    </div>
+</div>
+
+
+{% endblock contenido %}

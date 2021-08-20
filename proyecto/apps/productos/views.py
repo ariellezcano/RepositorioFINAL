@@ -19,9 +19,16 @@ def ListarProductos(request):
     # template
     return render(request, 'productos/listar.html', context)
 
-def DetalleProductos(request):
+@login_required
+def DetalleProducto(request, pk):
     context = {}
-    todos = Producto.objects.all() # ORM de django
-    context['productos'] = todos
-    return render(request, 'productos/detalleProducto.html', context)
+    #SELECT * FROM PRODUCTOS WHERE id = pk
+    objeto = Producto.objects.get(id = pk) # ORM de django
+    context['producto'] = objeto
+    return render(request, 'productos/detalle.html', context)
 
+#ORM PRINCIPALES
+
+# NOMBRE_CLASE.objects.all() "TRAE TODOS"
+# NOMBRE_CLASE.objects.get() "TRAE SOLO EL QUE CUMPLA LA CONDICION"
+# NOMBRE_CLASE.objects.filter() "TRAE TODOS LOS QUE CUMPLAN LA CONDICION"

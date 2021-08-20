@@ -10,8 +10,7 @@
     <thead class="thead-dark">
         <tr>
             <th>Nombre</th>
-            <th>Precio</th>
-            <th>Stock</th>
+            
             <th>Acción</th>
         </tr>
     </thead>
@@ -20,16 +19,16 @@
         {% for p in productos %}
         <tr>
             <td scope="row">{{p.nombre}}</td>
-            <td>{{p.precio}}</td>
-            <td>{{p.stock}}</td>
-            <td><b>accion</b></td>
+            <td>
+                <a href="{% url 'productos:detalle' p.id %}"  type="button" class="btn btn-warning" data-toggle="tooltip" data-placement="right" title="Ver detalle">
+                    <i class="fas fa-eye"></i>
+                </a>
+            </td>
         </tr>
         {% endfor %}
         {% endif %}
     </tbody>
 </table>
-
-
 
 <a href="{% url 'home' %}">ir al home</a>
 {% endblock contenido %}

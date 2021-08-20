@@ -4,7 +4,8 @@
 
 {% block contenido %}
 
-<h1>Hola soy el index</h1>
+{% if user.is_authenticated %}
+<h1>Bienvenidos al menu del sistema</h1>
 <div class="col container">
     <div class="row">
         <a href="{% url 'login' %}">Ir al login</a>
@@ -13,6 +14,11 @@
         <a href="{% url 'productos:listar' %}">listar producto</a>
     </div>
 </div>
+{% else %}
+<a href="{% url 'login' %}"> ir al login</a>
+
+{% endif %}
+
 <br>
 
 
